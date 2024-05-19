@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import queue
+import datetime
 
 searched_urls = set()
 crwlQueue = queue.Queue()
@@ -33,6 +34,6 @@ def storingUrls(url):
     crwlQueue.put(url)
     searched_urls.add(url)
     return url
-
-crawler("https://www.youtube.com/watch?v=APOPm01BVrk&t=507s")
-print(searched_urls)
+start = datetime.datetime.now()
+crawler("https://superuser.com/")
+print('Done in: ', datetime.datetime.now() - start, 'seconds.')
